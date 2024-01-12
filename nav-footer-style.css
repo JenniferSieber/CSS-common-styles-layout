@@ -1,0 +1,185 @@
+/* Google Fonts as links on html */
+
+:root {
+  --color-black: #000;
+  --color-dark: #2B283A;
+  --color-gray: #918E9B;
+  --color-accent-1: #F55A5A;
+  --color-accent-2: #0884d6;
+  --color-white: #fff;
+}
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 67.5%;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  color: var(--color-dark);
+}
+
+/* For repeated styles on different elements, create a class */
+.gray {
+  color: var(--color-gray);
+}
+
+.bold {
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+.shadow {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Container for sticky Nav and Footer on bottom of page after content */
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar is sticky  */
+nav {
+  background: var(--color-dark);
+  padding: 20px;
+  position: sticky;
+  top:0;
+  z-index: 1000;
+}
+
+/* Main Content Area flex: 1 */
+.main--container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+ /* Double Sided Section L: Image R: details, headers etc */
+.card {
+  display: flex;
+  margin: 20px;
+  border-radius: 10px; 
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* Image Container */
+.card--image-container {
+  flex: 1;
+  min-width: 150px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card--image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Details Container */
+.card--details-container {
+  flex: 2;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Footer at bottom of Browser moving based on content in Main */
+/* Footer divided into two sections aligned based on side */
+footer {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+/* Image on left */
+.logo-small {
+  width: 200px;
+}
+
+/* Right Content Text*/
+h3, 
+.footer--copy {
+  text-align: right;
+  margin-left: 5px;
+}
+
+/* When Screen Shrinks: 2 sided Cards convert to column Display and elements shrink or enlarge based on size: */
+
+    /*      Media Queries  Small Screens    */
+@media screen and (max-width: 380px) {
+  .card {
+    flex-direction: column; 
+  }
+  .card--image-container,
+  .card--details-containe {
+    flex: 1; 
+  } 
+}
+
+
+    /*      Media Queries  Larger Screens    */ 
+@media screen and (max-width: 500px) {
+  .card {
+    padding: 3px;
+    margin: 8px;
+  }
+
+  p, span, a {
+    font-size: .9rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin: 2px 0;
+  }
+
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .logo {
+    width: 300px;
+  }
+
+  .main--container {
+    align-items: center;
+  }
+
+  .card--image-container {
+    padding: 20px;
+  }
+
+  p, span, a {
+    font-size: 2rem;
+    margin: 15px 0px;
+  }
+
+  span {
+    padding-right: 12px;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+}
+
